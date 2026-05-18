@@ -1,4 +1,5 @@
 
+import DeleteModal from "@/components/DeleteModal";
 import { auth } from "@/lib/auth";
 import { Button, Table } from "@heroui/react";
 import { headers } from "next/headers";
@@ -39,7 +40,7 @@ const MyIdeasPage = async() => {
               <Table.Cell>{idea.newIdea.targetAudience}</Table.Cell>
               <Table.Cell className={'flex gap-1.5'}>
                 <Button variant="outline">Edit</Button>
-                <Button variant="danger">Delete</Button>
+                <DeleteModal id={idea._id} title={idea.newIdea.ideaTitle}></DeleteModal>
               </Table.Cell>
             </Table.Row>)
                 }
