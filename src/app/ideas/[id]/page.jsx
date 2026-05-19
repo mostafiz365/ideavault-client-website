@@ -1,3 +1,5 @@
+import Comments from "@/components/Comments";
+import CommentsTable from "@/components/CommentsTable";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -41,6 +43,10 @@ const IdeaDetailsPage = async({params}) => {
             <p className='text-[#706F6F] font-medium text-xl'>Estimated Budget : {estimatedBudget}</p>
           </div>
         </div>
+      </div>
+      <div className="max-w-10/12 mx-auto py-10 space-y-5">
+        <Comments></Comments>
+        <CommentsTable></CommentsTable>
       </div>
     </div>
     );

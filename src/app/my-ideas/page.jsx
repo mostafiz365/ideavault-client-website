@@ -1,7 +1,8 @@
 
 import DeleteModal from "@/components/DeleteModal";
+import EditModal from "@/components/EditModal";
 import { auth } from "@/lib/auth";
-import { Button, Table } from "@heroui/react";
+import { Table } from "@heroui/react";
 import { headers } from "next/headers";
 
 const MyIdeasPage = async() => {
@@ -9,7 +10,7 @@ const MyIdeasPage = async() => {
     headers: await headers()
 })
  const user = session?.user;
-
+console.log(user?.id)
  const res = await fetch(`http://localhost:5000/myIdeas/${user?.id}`)
  const ideas = await res.json();
  console.log(ideas);
@@ -39,7 +40,8 @@ const MyIdeasPage = async() => {
               <Table.Cell>$ {idea.newIdea.estimatedBudget}</Table.Cell>
               <Table.Cell>{idea.newIdea.targetAudience}</Table.Cell>
               <Table.Cell className={'flex gap-1.5'}>
-                <Button variant="outline">Edit</Button>
+                <EditModal idea={idea}></EditModal>
+                {/* <EditModal id={idea._id} data={idea.newIdea}></EditModal> */}
                 <DeleteModal id={idea._id} title={idea.newIdea.ideaTitle}></DeleteModal>
               </Table.Cell>
             </Table.Row>)

@@ -10,7 +10,7 @@ const Navbar = () => {
     } = authClient.useSession()
 
    const user = session?.user;
-   console.log(user);
+  //  console.log(user);
   
     const links = <>
     <li><MyLink href="/">Home</MyLink></li>

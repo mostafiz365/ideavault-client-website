@@ -3,7 +3,7 @@ import IdeaCard from "@/components/IdeaCard";
 const IdeasPage = async() => {
     const res = await fetch('http://localhost:5000/ideas')
     const ideas = await res.json();
-    console.log(ideas);
+    // console.log(ideas);
     return (
         <div className="max-w-10/12 mx-auto py-10 space-y-6">
             <div className="text-center space-y-4 max-w-3xl mx-auto">
