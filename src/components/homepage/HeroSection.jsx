@@ -50,9 +50,9 @@ const HeroSection = () => {
         }}
         navigation={true}
         loop={true}
-        speed={800}                    // Smooth transition
+        speed={800}
         fadeEffect={{
-          crossFade: true              // ← এটা খুব জরুরি
+          crossFade: true
         }}
         className="h-full"
       >

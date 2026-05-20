@@ -3,6 +3,7 @@ import Link from 'next/link';
 import MyLink from './MyLink';
 import { authClient } from '@/lib/auth-client';
 import { Avatar, Button } from '@heroui/react';
+import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const { 
@@ -20,8 +21,10 @@ const Navbar = () => {
     <li><MyLink href="/my-interactions">My Interactions</MyLink></li>
     </div>}
     </>
+
+    // className='sticky z-10 top-0 shadow-sm bg-base-100'
     return (
-        <div className='sticky z-10 top-0 shadow-sm bg-base-100'>
+        <div>
             <div className="navbar max-w-10/12 mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
@@ -41,7 +44,10 @@ const Navbar = () => {
       {links}
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end flex gap-1">
+    <div>
+      <ThemeToggle></ThemeToggle>
+    </div>
     {!user && <Link href="/login">
         <button className="bg-[#448c74] text-white rounded-full py-2 px-4">LogIn</button>
     </Link>}

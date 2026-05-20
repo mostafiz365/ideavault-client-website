@@ -6,10 +6,10 @@ import {
   FaComments,
   FaPencilAlt
 } from 'react-icons/fa';
-
+// bg-[#f6fafd]
 const Services = () => {
   return (
-    <section className="py-16 bg-[#f6fafd]">
+    <section className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Heading */}

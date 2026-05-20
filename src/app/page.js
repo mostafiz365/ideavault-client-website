@@ -10,8 +10,8 @@ export default function Home() {
       <HeroSection></HeroSection>
       <TrendingIdeas></TrendingIdeas>
       <Services></Services>
-      <Team></Team>
       <CTASection></CTASection>
+      <Team></Team>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NextThemeProvider from "@/providers/NextThemeProvider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -19,13 +20,15 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      data-theme="light"
+      suppressHydrationWarning
       className={`${outfit.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col" cz-shortcut-listen="true">
-        <Navbar></Navbar>
+      <body className="min-h-full flex flex-col bg-background text-foreground" cz-shortcut-listen="true">
+        <NextThemeProvider>
+          <Navbar></Navbar>
         {children}
         <Footer></Footer>
+        </NextThemeProvider>
       </body>
     </html>
   );

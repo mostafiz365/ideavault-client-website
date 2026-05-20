@@ -35,7 +35,7 @@ const Team = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16">
       <div className="max-w-10/12 mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
 
