@@ -1,8 +1,15 @@
+import CTASection from "@/components/homepage/CTASection";
+import Services from "@/components/homepage/Services";
+import Team from "@/components/homepage/Team";
+import TrendingIdeas from "@/components/homepage/TrendingIdeas";
 
 export default function Home() {
   return (
     <div>
-      <h2>Home Page</h2>
+      <TrendingIdeas></TrendingIdeas>
+      <Services></Services>
+      <Team></Team>
+      <CTASection></CTASection>
     </div>
   );
 }

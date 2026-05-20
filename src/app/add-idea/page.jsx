@@ -34,27 +34,13 @@ const AddIdeaPage = () => {
           redirect('/ideas');
         }
 
-        // const myIdeasData = {
-        //   userId: user?.id,
-        //   newIdea
-        // }
-        // const myIdeaRes = await fetch('http://localhost:5000/myIdeas', {
-        //   method: 'POST',
-        //     headers: {
-        //         'Content-type': 'application/json',
-        //     },
-        //     body: JSON.stringify(myIdeasData)
-        // })
-        // const myIdea = await myIdeaRes.json();
-        // console.log(myIdea);
-
         
     }
 
 
     return (
-        <div className='p-5 max-w-7xl mx-auto space-y-3'>
-            <h2 className='text-5xl font-medium text-[#448c74]'>Share Your Own Idea</h2>
+        <div className='py-10 max-w-7xl mx-auto space-y-3'>
+            <h2 className='text-5xl font-bold text-center text-[#448c74]'>Share Your Own Idea</h2>
         <Card className='my-5 rounded-none'>
             <form onSubmit={onSubmit} className="p-10 space-y-8 w-3xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
