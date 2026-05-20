@@ -8,38 +8,30 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 
 export async function generateMetadata({ params }) {
     const { id } = await params;
-
-    const {token}  = await auth.api.getToken({
-          headers : await headers()
-        })
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`, {
-      headers: {
-              authorization: `Bearer ${token}`
-            }
-    });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`);
     const idea = await res.json();
 
     return {
         title: idea.ideaTitle,
         description: idea.shortDescription,
-
-        // openGraph: {
-        //     title: idea.ideaTitle,
-        //     description: idea.shortDescription,
-        //     images: [idea.imageURL],
-        // },
     };
 }
 const IdeaDetailsPage = async({params}) => {
     const {id} = await params;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`)
+    const {token}  = await auth.api.getToken({
+          headers : await headers()
+        })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`, {
+      headers: {
+              authorization: `Bearer ${token}`
+            }
+    })
     const idea = await res.json();
     const {ideaTitle, shortDescription, imageURL, estimatedBudget, targetAudience, detailedDescription, category} = idea;
     return (
         <div>
       <div className="max-w-5xl mx-auto py-10 space-y-4">
-        <h2 className="text-4xl font-bold text-[#448c74] text-center">Idea Details Page</h2>
+        <h2 className="text-5xl font-bold text-[#448c74] text-center">Idea Details Page</h2>
         <p className="text-[#706F6F] text-center">AI-powered ideas designed to solve real-world problems and shape the future of technology, education, and modern digital experiences.</p>
 
         <Link href="/ideas" className="text-xl font-semibold text-[#448c74] flex items-center gap-2.5"> <FaArrowLeftLong /> Back to Ideas</Link>

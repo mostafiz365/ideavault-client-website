@@ -86,7 +86,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="text-white">
+            <h3 className="font-semibold text-white mb-4">
               Start learning
             </h3>
 
