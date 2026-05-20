@@ -1,4 +1,4 @@
-import { Table } from "@heroui/react";
+import { Avatar, Table } from "@heroui/react";
 import DeleteComment from "./DeleteComment";
 import EditComment from "./EditComment";
 
@@ -11,7 +11,8 @@ const CommentsTable = async () => {
         <Table.ScrollContainer>
           <Table.Content aria-label="Team members" className="">
             <Table.Header>
-              <Table.Column isRowHeader>Name</Table.Column>
+              <Table.Column isRowHeader>Image</Table.Column>
+              <Table.Column>Name</Table.Column>
               <Table.Column>Comment</Table.Column>
               <Table.Column>Time</Table.Column>
               <Table.Column>Action</Table.Column>
@@ -19,6 +20,10 @@ const CommentsTable = async () => {
             <Table.Body>
               {comments.map((comment) => (
                 <Table.Row key={comment._id}>
+                  <Table.Cell><Avatar>
+                          <Avatar.Image alt="John Doe" src={comment.userImage} />
+                          <Avatar.Fallback>JD</Avatar.Fallback>
+                        </Avatar></Table.Cell>
                   <Table.Cell>{comment.userName}</Table.Cell>
                   <Table.Cell>{comment.commentText}</Table.Cell>
                   <Table.Cell>

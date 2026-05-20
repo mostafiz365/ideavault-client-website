@@ -1,11 +1,11 @@
 'use client';
 import { Button, FieldError, Input, Label, Modal, Surface, TextField, Select, ListBox, TextArea } from "@heroui/react";
+import { redirect } from "next/navigation";
 import { BiEdit } from "react-icons/bi";
 
 const EditModal = ({idea}) => {
-    console.log(idea);
-    const {_id, userId, newIdea} = idea;
-    const {category, detailedDescription, estimatedBudget, ideaTitle, targetAudience, shortDescription, proposedSolution, imageURL, problemStatement} = newIdea;
+    const {_id, category, detailedDescription, estimatedBudget, ideaTitle, targetAudience, shortDescription, proposedSolution, imageURL, problemStatement } = idea;
+    // const {category, detailedDescription, estimatedBudget, ideaTitle, targetAudience, shortDescription, proposedSolution, imageURL, problemStatement} = newIdea;
     const onSubmit = async(e) =>{
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
@@ -13,7 +13,7 @@ const EditModal = ({idea}) => {
 
         console.log(updateData);
 
-        const res = await fetch(`http://localhost:5000/myIdeas/${userId}`, {
+        const res = await fetch(`http://localhost:5000/ideas/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json'
@@ -21,14 +21,14 @@ const EditModal = ({idea}) => {
             body: JSON.stringify(updateData)
         })
         const data = await res.json();
-        // if(data.modifiedCount > 0){
-        //     redirect('/my-ideas');
-        // }
+        if(data.modifiedCount > 0){
+            redirect('/my-ideas');
+        }
         console.log('data after update', data);
     }
     return (
         <Modal>
-      <Button variant="outline" className={'border border-gray-400 text-gray-500'}><BiEdit></BiEdit> Edit</Button>
+      <Button variant="outline" size="sm" className={'border border-gray-400 text-gray-500'}><BiEdit></BiEdit> Edit</Button>
       <Modal.Backdrop>
         <Modal.Container placement="auto">
           <Modal.Dialog className="sm:max-w-2xl">
@@ -160,6 +160,7 @@ const EditModal = ({idea}) => {
                                 <Button variant='outline' slot='close' className=" rounded-none text-red-500 px-6 py-3">Cancel</Button>
                                 <Button
                               type="submit"
+                              slot={'close'}
                               variant="outline"
                               className=" rounded-none bg-[#448c74] text-white px-6 py-3"
                             >

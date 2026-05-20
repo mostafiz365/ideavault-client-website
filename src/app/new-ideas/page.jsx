@@ -1,10 +1,8 @@
-import DeleteModal from "@/components/DeleteModal";
-import EditModal from "@/components/EditModal";
 import { auth } from "@/lib/auth";
 import { Table } from "@heroui/react";
 import { headers } from "next/headers";
 
-const MyIdeasPage = async () => {
+const NewIdeaPage = async () => {
 
     const session = await auth.api.getSession({
         headers: await headers()
@@ -48,8 +46,9 @@ const MyIdeasPage = async () => {
                           <Table.Cell>$ {idea.estimatedBudget}</Table.Cell>
                           <Table.Cell>{idea.targetAudience}</Table.Cell>
                           <Table.Cell>
-                            <EditModal idea={idea}></EditModal>
-                            <DeleteModal idea={idea}></DeleteModal>
+                            {/* <EditModal idea={idea}></EditModal>
+                            <EditModal id={idea._id} data={idea.newIdea}></EditModal>
+                            <DeleteModal id={idea._id} title={idea.ideaTitle}></DeleteModal> */}
                           </Table.Cell>
                         </Table.Row>)
                             }
@@ -62,4 +61,4 @@ const MyIdeasPage = async () => {
     );
 };
 
-export default MyIdeasPage;
+export default NewIdeaPage;

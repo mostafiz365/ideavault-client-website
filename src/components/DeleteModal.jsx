@@ -4,20 +4,22 @@ import { redirect } from "next/navigation";
 import { BiTrash } from "react-icons/bi";
 
 
-const DeleteModal = ({id, title}) => {
+const DeleteModal = ({idea}) => {
+  const {_id, ideaTitle} = idea;
 
     const handleDelete = async() =>{
-        const res = await fetch(`http://localhost:5000/myIdeas/${id}`, {
+        const res = await fetch(`http://localhost:5000/ideas/${_id}`, {
             method: 'DELETE'
         })
         const data = await res.json();
+        console.log('data after delete', data);
         if(data.deletedCount > 0){
             redirect('/my-ideas');
         }
     }
     return (
          <AlertDialog>
-      <Button variant="danger"><BiTrash></BiTrash> Delete</Button>
+      <Button variant="danger" size="sm"><BiTrash></BiTrash> Delete</Button>
       <AlertDialog.Backdrop>
         <AlertDialog.Container>
           <AlertDialog.Dialog className="sm:max-w-[400px]">
@@ -28,7 +30,7 @@ const DeleteModal = ({id, title}) => {
             </AlertDialog.Header>
             <AlertDialog.Body>
               <p>
-                This will permanently delete <strong>{title}</strong> and all of its
+                This will permanently delete <strong>{ideaTitle}</strong> and all of its
                 data. This action cannot be undone.
               </p>
             </AlertDialog.Body>

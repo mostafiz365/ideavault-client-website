@@ -1,6 +1,7 @@
 'use client'
 import { authClient } from "@/lib/auth-client";
 import { Card, FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button } from "@heroui/react";
+import { redirect } from "next/navigation";
 
 
 
@@ -14,34 +15,40 @@ const AddIdeaPage = () => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
         const newIdea = Object.fromEntries(formData.entries())
+        const myIdea = {
+          ...newIdea,
+          userId: user?.id,
+
+        }
+        // console.log(myIdea);
         
         const ideaRes = await fetch('http://localhost:5000/ideas', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(newIdea)
+            body: JSON.stringify(myIdea)
         })
         const data = await ideaRes.json();
-        console.log(data);
-
-        const myIdeasData = {
-          userId: user?.id,
-          newIdea
+        if(data.insertedId){
+          redirect('/ideas');
         }
-        const myIdeaRes = await fetch('http://localhost:5000/myIdeas', {
-          method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(myIdeasData)
-        })
-        const myIdea = await myIdeaRes.json();
-        console.log(myIdea);
 
-        // if(data.insertedId){
-        //   redirect('/ideas');
+        // const myIdeasData = {
+        //   userId: user?.id,
+        //   newIdea
         // }
+        // const myIdeaRes = await fetch('http://localhost:5000/myIdeas', {
+        //   method: 'POST',
+        //     headers: {
+        //         'Content-type': 'application/json',
+        //     },
+        //     body: JSON.stringify(myIdeasData)
+        // })
+        // const myIdea = await myIdeaRes.json();
+        // console.log(myIdea);
+
+        
     }
 
 
