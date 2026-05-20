@@ -6,10 +6,10 @@ import { redirect } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
-export const metadata = {
-  title: "LogIn Page  |  IdeaVault",
-  description: "Share your Own Idea and create a new World",
-};
+// export const metadata = {
+//   title: "LogIn Page  |  IdeaVault",
+//   description: "Share your Own Idea and create a new World",
+// };
 
 const LoginPage = () => {
     const onSubmit = async(e) =>{

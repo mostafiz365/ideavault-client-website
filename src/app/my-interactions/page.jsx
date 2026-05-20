@@ -12,7 +12,15 @@ const MyInteractionsPage = async() => {
     headers: await headers()
 })
  const user = session?.user;
-    const res = await fetch(`http://localhost:5000/comments/${user?.id}`)
+
+  const {token}  = await auth.api.getToken({
+        headers : await headers()
+      })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/comments/${user?.id}`, {
+      headers: {
+              authorization: `Bearer ${token}`
+            }
+    })
     const comments = await res.json();
 
 

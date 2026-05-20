@@ -3,7 +3,7 @@ import IdeaCard from "../IdeaCard";
 import Link from "next/link";
 
 const TrendingIdeas = async() => {
-    const res = await fetch('http://localhost:5000/trending')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/trending`)
     const ideas = await res.json();
     return (
         <div className="max-w-10/12 mx-auto py-10 space-y-6">

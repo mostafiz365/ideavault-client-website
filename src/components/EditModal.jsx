@@ -14,7 +14,7 @@ const EditModal = ({idea}) => {
 
         console.log(updateData);
 
-        const res = await fetch(`http://localhost:5000/ideas/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json'

@@ -13,7 +13,7 @@ const EditComment = ({comment}) => {
         const formData = new FormData(e.currentTarget)
         const editComment = Object.fromEntries(formData.entries())
 
-        const res = await fetch(`http://localhost:5000/comments/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/comments/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json'

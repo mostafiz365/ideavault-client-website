@@ -1,7 +1,6 @@
 'use client'
 import { authClient } from "@/lib/auth-client";
 import { Card, FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button } from "@heroui/react";
-import Head from "next/head";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
@@ -20,12 +19,14 @@ const AddIdeaPage = () => {
           userId: user?.id,
 
         }
-        // console.log(myIdea);
         
-        const ideaRes = await fetch('http://localhost:5000/ideas', {
+        const { data : tokenData } = await authClient.token()
+        
+      const ideaRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(myIdea)
         })

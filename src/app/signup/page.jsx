@@ -5,10 +5,10 @@ import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
-export const metadata = {
-  title: "SignUp Page  |  IdeaVault",
-  description: "Share your Own Idea and create a new World",
-};
+// export const metadata = {
+//   title: "SignUp Page  |  IdeaVault",
+//   description: "Share your Own Idea and create a new World",
+// };
 
 const SignUpPage = () => {
     const onSubmit = async(e) =>{

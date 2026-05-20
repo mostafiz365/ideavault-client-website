@@ -10,7 +10,7 @@ const DeleteComment = ({comment}) => {
     const router = useRouter();
 
     const handleDelete = async() =>{
-        const res = await fetch(`http://localhost:5000/comments/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/comments/${_id}`, {
             method: 'DELETE'
         })
         const data = await res.json();

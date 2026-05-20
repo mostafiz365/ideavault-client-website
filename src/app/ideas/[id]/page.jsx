@@ -1,15 +1,23 @@
 import Comments from "@/components/Comments";
 import CommentsTable from "@/components/CommentsTable";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 export async function generateMetadata({ params }) {
-
     const { id } = await params;
 
-    const res = await fetch(`http://localhost:5000/ideas/${id}`);
+    const {token}  = await auth.api.getToken({
+          headers : await headers()
+        })
 
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`, {
+      headers: {
+              authorization: `Bearer ${token}`
+            }
+    });
     const idea = await res.json();
 
     return {
@@ -25,7 +33,7 @@ export async function generateMetadata({ params }) {
 }
 const IdeaDetailsPage = async({params}) => {
     const {id} = await params;
-    const res = await fetch(`http://localhost:5000/ideas/${id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`)
     const idea = await res.json();
     const {ideaTitle, shortDescription, imageURL, estimatedBudget, targetAudience, detailedDescription, category} = idea;
     return (

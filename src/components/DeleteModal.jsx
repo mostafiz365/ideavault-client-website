@@ -9,7 +9,7 @@ const DeleteModal = ({idea}) => {
   const {_id, ideaTitle} = idea;
 
     const handleDelete = async() =>{
-        const res = await fetch(`http://localhost:5000/ideas/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${_id}`, {
             method: 'DELETE'
         })
         const data = await res.json();

@@ -10,18 +10,22 @@ export const metadata = {
 };
 
 const MyIdeasPage = async () => {
-
     const session = await auth.api.getSession({
         headers: await headers()
     })
-
     const user = session?.user;
-
     if(!user){
         return <h2>User not found</h2>
     }
+    const {token}  = await auth.api.getToken({
+      headers : await headers()
+    })
 
-    const res = await fetch(`http://localhost:5000/my-ideas/${user.id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-ideas/${user.id}`, {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    });
 
     const ideas = await res.json();
 
