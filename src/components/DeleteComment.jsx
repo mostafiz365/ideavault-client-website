@@ -3,6 +3,7 @@ import { AlertDialog, Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { BiTrash } from 'react-icons/bi';
+import { toast } from 'react-toastify';
 
 const DeleteComment = ({comment}) => {
     const {_id} = comment;
@@ -14,6 +15,7 @@ const DeleteComment = ({comment}) => {
         })
         const data = await res.json();
         if(data.deletedCount > 0){
+          toast.error('Comment Delete Successfully!');
             router.refresh();
         }
     }

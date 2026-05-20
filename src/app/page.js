@@ -4,6 +4,11 @@ import Services from "@/components/homepage/Services";
 import Team from "@/components/homepage/Team";
 import TrendingIdeas from "@/components/homepage/TrendingIdeas";
 
+export const metadata = {
+  title: "HOME  |  IdeaVault",
+  description: "Share your Own Idea and create a new World",
+};
+
 export default function Home() {
   return (
     <div>

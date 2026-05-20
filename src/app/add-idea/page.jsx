@@ -1,9 +1,9 @@
 'use client'
 import { authClient } from "@/lib/auth-client";
 import { Card, FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button } from "@heroui/react";
+import Head from "next/head";
 import { redirect } from "next/navigation";
-
-
+import { toast } from "react-toastify";
 
 const AddIdeaPage = () => {
   const { 
@@ -31,7 +31,8 @@ const AddIdeaPage = () => {
         })
         const data = await ideaRes.json();
         if(data.insertedId){
-          redirect('/ideas');
+          toast.success("Your Idea added successfully!"),
+          redirect('/my-ideas')
         }
 
         
@@ -159,10 +160,11 @@ const AddIdeaPage = () => {
 
             {/* Buttons */}
             <div className='flex justify-end gap-4'>
-                <Button variant='outline' className=" rounded-none text-red-500 px-6 py-3">Cancel</Button>
+                <Button variant='outline' slot="close" className=" rounded-none text-red-500 px-6 py-3">Cancel</Button>
                 <Button
               type="submit"
               variant="outline"
+              slot="close"
               className=" rounded-none bg-[#448c74] text-white px-6 py-3"
             >
              Add Your Idea

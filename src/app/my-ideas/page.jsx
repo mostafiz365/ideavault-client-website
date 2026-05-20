@@ -4,6 +4,11 @@ import { auth } from "@/lib/auth";
 import { Table } from "@heroui/react";
 import { headers } from "next/headers";
 
+export const metadata = {
+  title: "My Ideas  |  IdeaVault",
+  description: "Share your Own Idea and create a new World",
+};
+
 const MyIdeasPage = async () => {
 
     const session = await auth.api.getSession({
@@ -20,7 +25,7 @@ const MyIdeasPage = async () => {
 
     const ideas = await res.json();
 
-    console.log(ideas);
+    // console.log(ideas);
 
     return (
         <div className="max-w-10/12 mx-auto py-10 space-y-6">

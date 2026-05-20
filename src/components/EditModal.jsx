@@ -2,6 +2,7 @@
 import { Button, FieldError, Input, Label, Modal, Surface, TextField, Select, ListBox, TextArea } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { BiEdit } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 const EditModal = ({idea}) => {
     const {_id, category, detailedDescription, estimatedBudget, ideaTitle, targetAudience, shortDescription, proposedSolution, imageURL, problemStatement } = idea;
@@ -22,9 +23,10 @@ const EditModal = ({idea}) => {
         })
         const data = await res.json();
         if(data.modifiedCount > 0){
+          toast.info('Idea Edit Successfully!');
             redirect('/my-ideas');
         }
-        console.log('data after update', data);
+        // console.log('data after update', data);
     }
     return (
         <Modal>

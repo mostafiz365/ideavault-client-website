@@ -2,6 +2,7 @@
 import { AlertDialog, Button } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { BiTrash } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 
 const DeleteModal = ({idea}) => {
@@ -14,6 +15,7 @@ const DeleteModal = ({idea}) => {
         const data = await res.json();
         console.log('data after delete', data);
         if(data.deletedCount > 0){
+          toast.error('Idea Delete Successfully!');
             redirect('/my-ideas');
         }
     }

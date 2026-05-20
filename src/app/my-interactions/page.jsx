@@ -2,6 +2,11 @@ import { auth } from "@/lib/auth";
 import { Avatar, Table } from "@heroui/react";
 import { headers } from "next/headers";
 
+export const metadata = {
+  title: "My Interactions  |  IdeaVault",
+  description: "Share your Own Idea and create a new World",
+};
+
 const MyInteractionsPage = async() => {
     const session = await auth.api.getSession({
     headers: await headers()
@@ -31,7 +36,7 @@ const MyInteractionsPage = async() => {
                           {comments.map((comment) => (
                             <Table.Row key={comment._id}>
                               <Table.Cell><Avatar>
-        <Avatar.Image alt="John Doe" src={comment.userImage} />
+        <Avatar.Image referrerPolicy="no-referrer" alt="John Doe" src={comment.userImage} />
         <Avatar.Fallback>JD</Avatar.Fallback>
       </Avatar></Table.Cell>
                               <Table.Cell>{comment.userName}</Table.Cell>

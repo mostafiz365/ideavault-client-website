@@ -1,7 +1,8 @@
 'use client';
-import { Button, FieldError, Label, Modal, Surface, TextArea, TextField } from "@heroui/react";
+import { Button, FieldError, Label, Modal, Surface, TextArea, TextField, ToastDescription } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { BiEdit } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 const EditComment = ({comment}) => {
     const {_id, commentText} = comment;
@@ -21,6 +22,7 @@ const EditComment = ({comment}) => {
         })
         const data = await res.json();
         if(data.modifiedCount > 0){
+          toast.info('Comment Edit Successfully!');
             router.refresh();
         }
     }

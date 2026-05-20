@@ -3,6 +3,12 @@ import { authClient } from "@/lib/auth-client";
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
+
+export const metadata = {
+  title: "SignUp Page  |  IdeaVault",
+  description: "Share your Own Idea and create a new World",
+};
 
 const SignUpPage = () => {
     const onSubmit = async(e) =>{
@@ -18,12 +24,13 @@ const SignUpPage = () => {
             image: user.image
         })
         console.log({data, error});
-        // if(data){
-        //     redirect('/')
-        // }
-        // if(error){
-        //     alert(error.message);
-        // }
+        if(data){
+          toast.success('Signup Successfully!'),
+            redirect('/')
+        }
+        if(error){
+            toast.error(error.message);
+        }
     };
     const handleGoogle = async() =>{
       await authClient.signIn.social({

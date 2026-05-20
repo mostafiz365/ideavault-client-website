@@ -4,6 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
+export async function generateMetadata({ params }) {
+
+    const { id } = await params;
+
+    const res = await fetch(`http://localhost:5000/ideas/${id}`);
+
+    const idea = await res.json();
+
+    return {
+        title: idea.ideaTitle,
+        description: idea.shortDescription,
+
+        // openGraph: {
+        //     title: idea.ideaTitle,
+        //     description: idea.shortDescription,
+        //     images: [idea.imageURL],
+        // },
+    };
+}
 const IdeaDetailsPage = async({params}) => {
     const {id} = await params;
     const res = await fetch(`http://localhost:5000/ideas/${id}`)

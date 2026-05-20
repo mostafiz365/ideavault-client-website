@@ -55,7 +55,7 @@ const Navbar = () => {
         <span className='text-sm'>{user?.name}</span>
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-1">
           <li><Avatar>
-        <Avatar.Image alt="John Doe" src={user?.image} sizes='sm'/>
+        <Avatar.Image referrerPolicy="no-referrer" alt="John Doe" src={user?.image} sizes='sm'/>
         <Avatar.Fallback>{user?.name.charAt[0]}</Avatar.Fallback>
       </Avatar></li>   
       </div>
@@ -63,7 +63,7 @@ const Navbar = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li>
+        <li className='text-[#448c74]'>
           <Link href="/profile" className="justify-between">
             Profile Management
           </Link>

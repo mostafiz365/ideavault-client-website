@@ -21,7 +21,7 @@ const CommentsTable = async () => {
               {comments.map((comment) => (
                 <Table.Row key={comment._id}>
                   <Table.Cell><Avatar>
-                          <Avatar.Image alt="John Doe" src={comment.userImage} />
+                          <Avatar.Image referrerPolicy="no-referrer" alt="John Doe" src={comment.userImage} />
                           <Avatar.Fallback>JD</Avatar.Fallback>
                         </Avatar></Table.Cell>
                   <Table.Cell>{comment.userName}</Table.Cell>

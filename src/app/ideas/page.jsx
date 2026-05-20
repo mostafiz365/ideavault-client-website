@@ -1,5 +1,10 @@
 import IdeaCard from "@/components/IdeaCard";
 
+export const metadata = {
+  title: "All Ideas  |  IdeaVault",
+  description: "Share your Own Idea and create a new World",
+};
+
 const IdeasPage = async() => {
     const res = await fetch('http://localhost:5000/ideas')
     const ideas = await res.json();

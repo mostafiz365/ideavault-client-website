@@ -4,6 +4,12 @@ import { Button, Card, Description, FieldError, Form, Input, Label, TextField } 
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
+
+export const metadata = {
+  title: "LogIn Page  |  IdeaVault",
+  description: "Share your Own Idea and create a new World",
+};
 
 const LoginPage = () => {
     const onSubmit = async(e) =>{
@@ -18,10 +24,11 @@ const LoginPage = () => {
         })
         console.log({data, error})
         if(data){
+          toast.success('login Successfully!'),
             redirect('/')
         }
         if(error){
-            alert(error.message);
+            toast.error(error.message);
         }
     };
 
