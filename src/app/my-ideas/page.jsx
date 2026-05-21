@@ -32,7 +32,7 @@ const MyIdeasPage = async () => {
     // console.log(ideas);
 
     return (
-        <div className="max-w-10/12 mx-auto py-10 space-y-6">
+        <div className="max-w-7xl mx-auto py-10 space-y-6">
             <div className="text-center space-y-4 max-w-3xl mx-auto">
                 <h2 className="text-5xl font-bold text-[#448c74]">My Own Ideas</h2>
             <p className="text-gray-500">Discover groundbreaking AI-powered ideas designed to solve real-world problems, improve productivity, and shape the future of technology, education, healthcare, and modern digital experiences.</p>
