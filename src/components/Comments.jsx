@@ -3,6 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import { Button, TextArea } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "react-toastify";
 
 const Comments = () => {
     const [value, setValue] = React.useState("");
@@ -29,6 +30,7 @@ const Comments = () => {
         const data = await res.json();
         if(data.insertedId){
         setValue('');
+        toast.success('Comment added Successfully!');
         router.refresh();
     }
     }

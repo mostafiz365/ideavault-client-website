@@ -3,17 +3,15 @@ import { FaEnvelope } from 'react-icons/fa';
 
 const CTASection = () => {
   return (
-    <section className="bg-[#448c74] py-20 px-6 mb-20">
+    <section className="bg-[#448c74] dark:bg-black py-20 px-6 mb-20">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
-          {/* Left Side - Big Text */}
           <div>
             <h2 className="text-white text-5xl md:text-6xl font-bold leading-tight">
               Ready to take<br />your Ideas<br />to the next level?
             </h2>
-            
-            {/* Yellow Arrow */}
+          
             <div className="mt-8 hidden md:block">
               <svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 50 Q30 20 60 30 Q90 45 110 10" stroke="#facc15" strokeWidth="6" strokeLinecap="round" fill="none"/>
@@ -22,13 +20,11 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Right Side - Content + Form */}
           <div className="space-y-8">
             <p className="text-white/90 text-lg leading-relaxed max-w-md">
               Ready to grow your business with expert marketing, branding, and communication strategies? Our team is here to help you achieve sustainable growth and stand out in the market.
             </p>
 
-            {/* Form */}
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1">
                 <div className="absolute left-5 top-1/2 -translate-y-1/2 text-white/70">
