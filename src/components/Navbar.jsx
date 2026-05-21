@@ -51,8 +51,9 @@ const Navbar = () => {
     {!user && <Link href="/login">
         <button className="bg-[#448c74] text-white rounded-full py-2 px-4">LogIn</button>
     </Link>}
-    { user && <div className="dropdown dropdown-end">
-        <span className='text-sm'>{user?.name}</span>
+    { user && <div className="dropdown dropdown-end flex flex-row items-center">
+        <span className='hidden md:block text-sm'>
+  {user?.name}</span>
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-1">
           <li><Avatar>
         <Avatar.Image referrerPolicy="no-referrer" alt="John Doe" src={user?.image} sizes='sm'/>

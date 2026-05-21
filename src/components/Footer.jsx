@@ -61,7 +61,7 @@ const Footer = () => {
             <ul className="space-y-3 text-white">
               <li>
                 <Link
-                  href="/about"
+                  href=""
                   className="text-white"
                 >
                   About
@@ -69,7 +69,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href=""
                   className="text-white"
                 >
                   Phone
@@ -77,7 +77,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href=""
                   className="text-white"
                 >
                   Email
@@ -85,23 +85,40 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="space-y-4">
+
+          <div>
             <h3 className="font-semibold text-white mb-4">
-              Start learning
+              Platform links
             </h3>
-
-            <p className="text-white">
-              Build your first Skills with our platform today.
-            </p>
-
-            <Link
-              href="/signup"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full 
-              bg-[#facc15] text-white font-medium"
-            >
-              Get Started
-            </Link>
+            <ul className="space-y-3 text-white">
+              <li>
+                <Link
+                  href=""
+                  className="text-white"
+                >
+                  Ideas
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  className="text-white"
+                >
+                  My Ideas
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  className="text-white"
+                >
+                  My Interactions
+                </Link>
+              </li>
+            </ul>
           </div>
+
+          
         </div>
 
         <div className="mt-12 h-px w-full bg-linear-to-r from-transparent via-gray-300 to-transparent dark:via-white/10" />

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const Team = () => {
@@ -65,9 +66,11 @@ const Team = () => {
               {team.map((member, index) => (
                 <div key={index} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all group">
                   <div className="relative">
-                    <img 
+                    <Image
                       src={member.img} 
                       alt={member.name}
+                      width={100}
+                      height={100}
                       className="w-full h-80 object-cover"
                     />
                     
