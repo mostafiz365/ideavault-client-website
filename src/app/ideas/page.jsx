@@ -6,7 +6,9 @@ export const metadata = {
 };
 
 const IdeasPage = async() => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas`, {
+        cache: "no-store"
+    })
     const ideas = await res.json();
     // console.log(ideas);
     return (
