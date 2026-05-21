@@ -97,7 +97,7 @@ const Footer = () => {
             <Link
               href="/signup"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-full 
-              bg-[#448c74] text-white font-medium"
+              bg-[#facc15] text-white font-medium"
             >
               Get Started
             </Link>
