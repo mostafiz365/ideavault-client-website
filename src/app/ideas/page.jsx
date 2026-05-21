@@ -31,7 +31,7 @@ const IdeasPage = () => {
     }, [search, category]);
 
     return (
-        <div className="max-w-10/12 mx-auto py-10 space-y-6">
+        <div className="max-w-7xl mx-auto px-3 py-10 space-y-6">
 
             {/* Title */}
             <div className="text-center space-y-4 max-w-3xl mx-auto">
@@ -63,8 +63,6 @@ const IdeasPage = () => {
       className="
         w-full
         border
-        bg-white
-        dark:bg-black
         px-4
         py-3
         rounded-xl

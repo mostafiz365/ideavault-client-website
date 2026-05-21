@@ -6,7 +6,7 @@ const TrendingIdeas = async() => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/trending`)
     const ideas = await res.json();
     return (
-        <div className="max-w-10/12 mx-auto py-10 space-y-6">
+        <div className="max-w-7xl mx-auto py-10 px-2 space-y-6">
                     <div className="text-center space-y-4 max-w-3xl mx-auto">
                         <h2 className="text-5xl font-bold text-[#448c74]">Trending Ideas</h2>
                     <p className="text-gray-500">Discover groundbreaking AI-powered ideas designed to solve real-world problems, improve productivity, and shape the future of technology, education, healthcare, and modern digital experiences.</p>
@@ -16,7 +16,7 @@ const TrendingIdeas = async() => {
                             ideas.map(idea => <IdeaCard key={idea._id} idea={idea}></IdeaCard>)
                         }
                     </div>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center mt-10">
                         <Link href="/ideas">
                         <Button className={'font-semibold text-xl px-12 py-5 bg-[#448c74]'}>View All Ideas</Button>
                         </Link>

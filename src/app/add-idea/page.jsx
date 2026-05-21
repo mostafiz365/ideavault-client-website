@@ -41,10 +41,10 @@ const AddIdeaPage = () => {
 
 
     return (
-        <div className='py-10 max-w-7xl mx-auto space-y-3'>
+        <div className='py-10 max-w-7xl mx-auto space-y-5'>
             <h2 className='text-5xl font-bold text-center text-[#448c74]'>Share Your Own Idea</h2>
         <Card className='my-5 rounded-none'>
-            <form onSubmit={onSubmit} className="p-10 space-y-8 w-3xl">
+            <form onSubmit={onSubmit} className="p-4 space-y-8 max-w-3xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="md:col-span-2">
                 <TextField name="ideaTitle" isRequired>

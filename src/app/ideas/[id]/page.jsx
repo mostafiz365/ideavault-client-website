@@ -30,7 +30,7 @@ const IdeaDetailsPage = async({params}) => {
     const {ideaTitle, shortDescription, imageURL, estimatedBudget, targetAudience, detailedDescription, category} = idea;
     return (
         <div>
-      <div className="max-w-5xl mx-auto py-10 space-y-4">
+      <div className="max-w-7xl mx-auto py-10 space-y-4 px-2">
         <h2 className="text-5xl font-bold text-[#448c74] text-center">Idea Details Page</h2>
         <p className="text-[#706F6F] text-center">AI-powered ideas designed to solve real-world problems and shape the future of technology, education, and modern digital experiences.</p>
 
@@ -63,7 +63,7 @@ const IdeaDetailsPage = async({params}) => {
           </div>
         </div>
       </div>
-      <div className="max-w-10/12 mx-auto py-10 space-y-5">
+      <div className="max-w-7xl mx-auto py-10 px-2 space-y-5">
         <Comments></Comments>
         <CommentsTable></CommentsTable>
       </div>

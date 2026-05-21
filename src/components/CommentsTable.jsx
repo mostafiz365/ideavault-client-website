@@ -29,7 +29,7 @@ const CommentsTable = async () => {
                   <Table.Cell>
                     {new Date(comment.createdAt).toLocaleString()}
                   </Table.Cell>
-                  <Table.Cell className={"flex gap-1"}>
+                  <Table.Cell>
                     <EditComment comment={comment}></EditComment>
                     <DeleteComment comment={comment}></DeleteComment>
                   </Table.Cell>

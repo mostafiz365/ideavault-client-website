@@ -16,7 +16,7 @@ const Navbar = () => {
     const links = <>
     <li><MyLink href="/">Home</MyLink></li>
     <li><MyLink href="/ideas">Ideas</MyLink></li>
-    {user && <div className='flex items-center'> <li><MyLink href="/add-idea">Add Idea</MyLink></li>
+    {user && <div className='flex-row lg:flex items-center'> <li><MyLink href="/add-idea">Add Idea</MyLink></li>
     <li><MyLink href="/my-ideas">My Ideas</MyLink></li>
     <li><MyLink href="/my-interactions">My Interactions</MyLink></li>
     </div>}
@@ -25,9 +25,9 @@ const Navbar = () => {
     // className='sticky z-10 top-0 shadow-sm bg-base-100'
     return (
         <div className='sticky z-10 top-0 shadow-sm bg-white dark:bg-black'>
-            <div className="navbar max-w-10/12 mx-auto">
+            <div className="navbar max-w-7xl mx-auto">
   <div className="navbar-start">
-    <div className="dropdown">
+    <div className="dropdown flex-row">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>

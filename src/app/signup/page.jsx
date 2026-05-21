@@ -44,7 +44,7 @@ const SignUpPage = () => {
             </div>
             
             <Card className="border border-gray-300 rounded-none p-10">
-                <Form className="flex w-120 flex-col gap-4" onSubmit={onSubmit}>
+                <Form className="flex max-w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
       <TextField
         isRequired
         name="name"
