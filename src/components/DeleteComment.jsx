@@ -1,4 +1,5 @@
 'use client';
+import { authClient } from '@/lib/auth-client';
 import { AlertDialog, Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -8,15 +9,27 @@ import { toast } from 'react-toastify';
 const DeleteComment = ({comment}) => {
     const {_id} = comment;
     const router = useRouter();
+    const {
+   data: session
+} = authClient.useSession();
+
+const user = session?.user;
 
     const handleDelete = async() =>{
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/comments/${_id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+              'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({userId: user?.id})
         })
         const data = await res.json();
         if(data.deletedCount > 0){
           toast.error('Comment Delete Successfully!');
             router.refresh();
+        }
+        else{
+          toast.error('You cannot Delete Others Comments!');
         }
     }
 

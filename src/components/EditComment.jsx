@@ -1,4 +1,5 @@
 'use client';
+import { authClient } from "@/lib/auth-client";
 import { Button, FieldError, Label, Modal, Surface, TextArea, TextField, ToastDescription } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { BiEdit } from "react-icons/bi";
@@ -7,11 +8,18 @@ import { toast } from "react-toastify";
 const EditComment = ({comment}) => {
     const {_id, commentText} = comment;
     const router = useRouter();
+    const {
+   data: session
+} = authClient.useSession();
+
+const user = session?.user;
 
     const onSubmit = async(e) =>{
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
-        const editComment = Object.fromEntries(formData.entries())
+        const editComment = {
+              ...Object.fromEntries(formData.entries()),
+              userId: user?.id }
 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/comments/${_id}`, {
             method: 'PATCH',
@@ -24,6 +32,9 @@ const EditComment = ({comment}) => {
         if(data.modifiedCount > 0){
           toast.info('Comment Edit Successfully!');
             router.refresh();
+        }
+        else{
+          toast.error('You cannot Edit Others Comments!');
         }
     }
 

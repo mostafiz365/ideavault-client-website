@@ -6,16 +6,40 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
-export async function generateMetadata({ params }) {
-    const { id } = await params;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`);
-    const idea = await res.json();
+// export const generateMetadata = async({ params }) => {
+//     const { id } = await params;
+//     console.log(id);
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`);
+//     const idea = await res.json();
+//     console.log(idea);
 
+//     return {
+//         title: idea.ideaTitle,
+//         description: idea.shortDescription,
+//     };
+// }
+
+export const generateMetadata = async ({ params }) => {
+    const { id } = await params;
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    });
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/ideas/${id}`,
+        {
+            headers: {
+                authorization: `Bearer ${token}`
+            },
+           cache: "no-store"
+        }
+    );
+    const idea = await res.json();
     return {
-        title: idea.ideaTitle,
+        title: `${idea.ideaTitle} | IdeaVault`,
         description: idea.shortDescription,
     };
 }
+
 const IdeaDetailsPage = async({params}) => {
     const {id} = await params;
     const {token}  = await auth.api.getToken({
